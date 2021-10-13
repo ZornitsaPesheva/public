@@ -1,103 +1,24 @@
 <!DOCTYPE html>
     <html>
     <head>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-        <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-127890191-1"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag() { dataLayer.push(arguments); }
-            gtag('js', new Date());
-    
-            gtag('config', 'UA-127890191-1');
-        </script>    
-        <link rel="shortcut icon" href="/Content/img/OrgChartJS-icon.png" />
-        <link rel="icon" href="/Content/img/OrgChartJS-icon.png" type="image/x-icon" />
-        <meta name="description" content="This OrgChart JS example demonstrates how to load the data from a remote JSON file." />        
+   
         <title>Loading remote JSON - Demos | BALKAN OrgChartJS</title>
         <style>
             html, body {
-    margin: 0px;
-    padding: 0px;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    font-family: Helvetica;
-}
-
-#tree {
-    width: 100%;
-    height: 100%;
-}
-
-
-            html,
-            body {
-                padding: 0;
-                margin: 0;
+                margin: 0px;
+                padding: 0px;
+                width: 100%;
                 height: 100%;
                 overflow: hidden;
-                font-family: Helvetica, Arial, sans-serif;
-            }
-            .btns {
-                width: 200px;
-                z-index: 500000;
-                position: absolute;
-                bottom: 30px;
-                left: 20px;
-                text-align: center;
+                font-family: Helvetica;
             }
 
-            .getting-started {
+            #tree {
                 width: 100%;
-                height: 40px;
-                background-color: #039be5;
-                color: #fff;
-                cursor: pointer;
-                border-radius: 20px;
-            }
-        
-                .getting-started svg {
-                    float: left;
-                }
-        
-                .getting-started span {
-                    display: inline-block;
-                    padding-top: 13px;
-                }
-    
-            .show-jsfiddle {
-                width: 100%;
-                height: 40px;
-                background-color: #F57C00;
-                color: #fff;
-                cursor: pointer;
-                border-radius: 20px;
+                height: 100%;
             }
     
-                .show-jsfiddle svg {
-                    float: left;
-                }
-    
-                .show-jsfiddle span {
-                    display: inline-block;
-                    padding-top: 13px;
-                }
-                
-                .show-description {
-                    text-align: left;
-                    color: #757575;
-                }
-            </style>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag() { dataLayer.push(arguments); }
-            gtag('js', new Date());
-    
-            gtag('config', 'UA-127890191-1');
-        </script>  
+        </style>
     </head>
     <body>
         
