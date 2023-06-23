@@ -24,10 +24,9 @@ html, body{
 <body>
         <script src="https://balkan.app/js/OrgChart.js"></script>
     
-        <div id="tree"/>
+        <div id="tree"></div>
 
     <script>
-    window.onload = function () {
         
 
       var chart = new OrgChart(document.getElementById("tree"), {
@@ -50,7 +49,6 @@ html, body{
         ];
 
         chart.load(nodes);
-    }
     
     </script>
 </body>
