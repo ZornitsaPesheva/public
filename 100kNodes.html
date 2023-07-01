@@ -25,65 +25,49 @@
 <script src="OrgChart.js"></script>
 <div id="tree"></div>
 <script>
-
-window.onload = function () { 
     var chart = new OrgChart(document.getElementById("tree"), {
         nodeBinding: {
             field_0: "name",
-            field_1: "title"
+            field_1: "title",
+            img_0: "img"
         }
+    
     });
-
-    OrgChart.loading.show(chart);    
-
-    chart.on('init', function(sender){
-        OrgChart.loading.hide(sender);
+    chart.on('init', function (sender) {
+        OrgChart.loading.show(sender);
     });
-
+    
     var flag = false;
-    chart.editUI.on('show', function(sender, id){
-        if (!flag){
-            fetchJSONFile(`https://balkan.app/OrgChartJS-Demos/${id}.json`, function(data){
-                for(var i = 0; i < sender.obj.config.nodes.length; i++){
-                    if (sender.obj.config.nodes[i].id == id){
-                        sender.obj.config.nodes[i] = data;
+    chart.editUI.on('show', function (sender, id) {
+        if (!flag) {
+            fetch(`https://balkan.app/OrgChartJS-Demos//${id}.json`)
+                .then((response) => response.json())
+                .then((data) => {
+                    for (var i = 0; i < sender.obj.config.nodes.length; i++) {
+                        if (sender.obj.config.nodes[i].id == id) {
+                            sender.obj.config.nodes[i] = data;
+                        }
                     }
-                }
-                sender.fields = Object.keys(data);
-                chart.editUI.show(id)
-            });
-
+                    sender.fields = Object.keys(data);
+                    chart.editUI.show(id)
+                });
             flag = true;
-            return false;	
+            return false;
         }
-        else{
+        else {
             flag = false;
         }
-
     });
-
-    fetchJSONFile('https://balkan.app/OrgChartJS-Demos/100000.json', function(data){
     
-        chart.load(data);
-    });
+    fetch('https://balkan.app/OrgChartJS-Demos/100000.json')
+        .then((response) => response.json())
+        .then((data) => chart.load(data, function () {
+            OrgChart.loading.hide(chart);
+            chart.center(1)
+            console.log(chart.config.nodes.length)
+        }));
+</script>
 
 
-    function fetchJSONFile(path, callback) {
-        var httpRequest = new XMLHttpRequest();
-        httpRequest.onreadystatechange = function() {
-            if (httpRequest.readyState === 4) {
-                if (httpRequest.status === 200) {
-                    var data = JSON.parse(httpRequest.responseText);
-                    if (callback) callback(data);
-                }
-            }
-        };
-        httpRequest.open('GET', path);
-        httpRequest.send(); 
-    }
-}
-        </script>
-
-
-    </body>
-    </html>
+</body>
+</html>
