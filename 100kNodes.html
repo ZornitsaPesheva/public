@@ -59,7 +59,7 @@
         }
     });
     
-    fetch('https://balkan.app/OrgChartJS-Demos/100000.json')
+    fetch('https://balkan.app/content/100k.json')
         .then((response) => response.json())
         .then((data) => chart.load(data, function () {
             OrgChart.loading.hide(chart);
